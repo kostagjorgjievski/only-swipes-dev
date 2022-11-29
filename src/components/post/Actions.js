@@ -4,6 +4,8 @@ import { useAuth } from "../../hooks/auth";
 import { useToggleLike, useDeletePost } from "../../hooks/posts";
 import { Link } from "react-router-dom"
 import { PROTECTED } from "../../lib/routes";
+import Comments from "../comments";
+import { useComments } from "../../hooks/comments";
 
 
 export default function Actions({post}) {
@@ -19,8 +21,8 @@ export default function Actions({post}) {
     }
 
     const {toggleLike, isLoading: likeLoading} = useToggleLike(config)
-    const {deletePost, isLoading: deleteLoading} = useDeletePost(id);
-
+    // const {deletePost, isLoading: deleteLoading} = useDeletePost(id);
+    const {comments, isLoading: commentsLoading} = useComments(id)
 
   return (
     <Flex p="2">
@@ -44,15 +46,16 @@ export default function Actions({post}) {
             size="md" 
             variant="ghost" 
             // icon={isLiked ? <FaHeart /> : <FaRegHeart/> }
-            icon={<FaComment />} 
+            icon={comments?.length === 0 ? <FaRegComment /> : <FaComment />} 
             colorScheme="teal" 
             isRound/>
-            5
+            {comments?.length}
+            {/* create an index and use the .count() without fetching the comments. methond to save money */}
         </Flex>
 
         <IconButton 
-            onClick={deletePost()}
-            isLoading={deleteLoading}
+            // onClick={deletePost()}
+            // isLoading={deleteLoading}
             size="md"
             ml="auto" 
             variant="ghost" 

@@ -4,7 +4,7 @@ import TextareaAutosize from "react-textarea-autosize"
 import { useForm } from "react-hook-form"
 import { useAddPost, usePosts } from '../../hooks/posts';
 import { useAuth } from '../../hooks/auth';
-import PostLists from '../post/PostLists';
+import PostsList from '../post/PostsList';
 
 
 function NewPost() {
@@ -48,7 +48,7 @@ export default function Dashboard() {
     return (
         <>
             <NewPost />
-            <PostLists posts={posts} />
+            <PostsList posts={posts} />
         </>
     )
 }

@@ -1,7 +1,7 @@
 import { Box, Text } from "@chakra-ui/react"
 import Post from '.'
 
-export default function PostLists({posts}) {
+export default function PostsList({posts}) {
   return (
     <Box px="4" align="center">
         {posts?.length===0 

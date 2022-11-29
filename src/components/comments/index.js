@@ -2,6 +2,9 @@ import { Box } from "@chakra-ui/react";
 import { usePost } from "../../hooks/posts";
 import { useParams } from "react-router-dom";
 import Post from "../post";
+import NewComment from "./NewComment";
+import CommentList from "./CommentList";
+
 
 
 export default function Comments() {
@@ -13,6 +16,8 @@ export default function Comments() {
     return (
         <Box align="center" pt="50">
             <Post post={post} />
+            <NewComment post={post} />
+            <CommentList post={post} />
         </Box>
     )
 }
